@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateOrder">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Order Details"
+                android:textAlignment="center"
+                android:textSize="32sp"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="we will assign the nearset courier to pick-up and deliver as soon as possible"
+                android:textSize="19sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/BookOption"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:backgroundTint="@color/black"
+                android:entries="@array/Book_Options"
+                android:padding="5dp" />
+
+            <Spinner
+                android:id="@+id/OrderWeight"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:backgroundTint="@color/black"
+                android:entries="@array/Order_weight"
+                android:padding="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="13dp"
+                    android:background="@drawable/roundcorners"
+                    android:text="1" />
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:indeterminate="false"
+                    android:paddingTop="190dp"
+                    android:rotation="90" />
+
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/roundcorners"
+                    android:text="2" />
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:indeterminate="false"
+                    android:paddingTop="190dp"
+                    android:rotation="90" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Pickup point"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/SenderName"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:drawableEnd="@drawable/person"
+                    android:text=""
+                    android:hint="Name"
+                    android:textSize="22sp" />
+                <EditText
+                    android:id="@+id/SenderPhone"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:drawableEnd="@drawable/phone"
+                    android:hint="Phone Number"
+                    android:text=""
+                    android:inputType="phone"
+                    android:textSize="22sp" />
+                <EditText
+                    android:id="@+id/PickUpAddress"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:drawableEnd="@drawable/locationicon"
+                    android:hint="Address"
+                    android:text=""
+                    android:textSize="22sp" />
+
+                <Spinner
+                    android:id="@+id/SenderLandmark"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="0dp"
+                    android:text=""
+                    android:entries="@array/Landmarks" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Delivery Point"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/ReceiverName"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text=""
+                    android:drawableEnd="@drawable/person"
+                    android:hint="Name"
+                    android:textSize="22sp" />
+                <EditText
+                    android:id="@+id/ReceiverPhone"
+                    android:layout_width="300dp"
+                    android:text=""
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:drawableEnd="@drawable/person"
+                    android:hint="Phone Number"
+                    android:inputType="phone"
+                    android:textSize="22sp" />
+                <EditText
+                    android:id="@+id/ReceiverAddress"
+                    android:layout_width="300dp"
+                    android:text=""
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:drawableEnd="@drawable/locationicon"
+                    android:hint="Address"
+                    android:textSize="22sp" />
+                <Spinner
+                    android:id="@+id/ReceiverLandmark"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:text=""
+                    android:entries="@array/Landmarks" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Package"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="What are you sending ?"
+                android:textSize="20sp"
+                />
+            <EditText
+                android:id="@+id/ItemNameToSend"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/Documents"
+                    android:layout_width="115dp"
+                    android:layout_height="wrap_content"
+                    android:text="Documents"
+                    android:textSize="11sp"
+                    android:layout_margin="2dp"
+                    android:textColor="#fff"
+                    android:backgroundTint="#B6664B"
+                    />
+                <Button
+                    android:id="@+id/Food"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Food"
+                    android:textSize="11sp"
+                    android:layout_margin="2dp"
+                    android:textColor="#fff"
+                    android:backgroundTint="#B6664B"
+                    />
+                <Button
+                    android:id="@+id/Cloth"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cloth"
+                    android:textSize="11sp"
+                    android:layout_margin="2dp"
+                    android:textColor="#fff"
+                    android:backgroundTint="#B6664B"
+                    />
+                <Button
+                    android:id="@+id/Groceries"
+                    android:layout_width="95dp"
+                    android:layout_height="wrap_content"
+                    android:text="Groceries"
+                    android:textSize="11sp"
+                    android:layout_margin="2dp"
+                    android:textColor="#fff"
+                    android:backgroundTint="#B6664B"
+                    />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/ParcelValue"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:hint="Parcel Value"
+                android:text=""
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Additional Services"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+            <Switch
+                android:id="@+id/PreferBagOption"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="22sp"
+                android:text="Prefer Courier with Delivery Bag"
+                />
+            <Switch
+                android:id="@+id/NotifyPersonOption"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textSize="22sp"
+                android:checked="true"
+                android:text="Notify recipients by SMS"
+                />
+            <Button
+                android:id="@+id/NextButton"
+                android:layout_width="270dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="35dp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:text="Next"
+                android:tooltipText="Review and Payment"
+                android:textSize="21sp"
+                android:textColor="#fff"
+                android:background="@drawable/roundcorners"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
