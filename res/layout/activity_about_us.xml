@@ -1,24 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".AboutUs">
+    android:background="#B6664B"
+    tools:context=".AboutUs"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:text="About Us"
-        android:textSize="30sp"
+        android:text="Meet Our Team"
+        android:textColor="#fff"
+        android:textSize="33sp"
         android:textStyle="bold"
+        android:layout_marginBottom="20dp"
         />
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:backgroundTint="#4eafcd"
+        android:layout_height="430dp"
+        android:layout_margin="14dp"
+        app:cardCornerRadius="15dp"
+        android:background="#fff"
+        app:cardElevation="20dp"
+        >
+        <ImageView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nauman Pathan"
+            android:textSize="24sp"
+            android:textColor="#000"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="250dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Team Lead"
+            android:textSize="20sp"
+            android:textColor="#988CBD"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="280dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="330dp"
+            >
+            <ImageButton
+                android:id="@+id/GithubNauman"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/githubicon"
+                android:layout_marginLeft="60dp"
+                android:background="#fff"
+                />
+            <ImageButton
+                android:id="@+id/TelegramNauman"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/telegramicon"
+                android:background="#fff"
+                android:layout_marginLeft="20dp"
+                />
+            <ImageButton
+                android:id="@+id/LinkedinNauman"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/linkedinicon"
+                android:background="#fff"
+                android:layout_marginLeft="20dp"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_margin="14dp"
+        app:cardCornerRadius="15dp"
+        android:background="#fff"
+        app:cardElevation="20dp"
+        >
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/tejasimage"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tejas Kulkarni"
+        android:textSize="24sp"
+        android:textColor="#000"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp"
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senior Developer"
+            android:textSize="20sp"
+            android:textColor="#988CBD"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="280dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="330dp"
+            >
+            <ImageButton
+                android:id="@+id/GithubTejas"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/githubicon"
+                android:layout_marginLeft="60dp"
+                android:background="#fff"
+                />
+            <ImageButton
+                android:id="@+id/TelegramTejas"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/telegramicon"
+                android:background="#fff"
+                android:layout_marginLeft="20dp"
+                />
+            <ImageButton
+                android:id="@+id/LinkedinTejas"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/linkedinicon"
+                android:background="#fff"
+                android:layout_marginLeft="20dp"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_margin="14dp"
+        app:cardCornerRadius="15dp"
+        android:background="#fff"
+        app:cardElevation="20dp"
+        >
+        <ImageView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/kshitijimage"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Junior Developer"
+            android:textSize="20sp"
+            android:textColor="#988CBD"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="280dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="330dp"
+            >
+            <ImageButton
+                android:id="@+id/GithubKshitij"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/githubicon"
+                android:layout_marginLeft="60dp"
+                android:background="#fff"
+                />
+            <ImageButton
+                android:id="@+id/TelegramKshitij"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/telegramicon"
+                android:background="#fff"
+                android:layout_marginLeft="20dp"
+                />
+            <ImageButton
+                android:id="@+id/LinkedinKshitij"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/linkedinicon"
+                android:background="#fff"
+                android:layout_marginLeft="20dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="250dp"
+                android:text="Kshitij Ghodake"
+                android:textColor="#000"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DeliveryNest , 2023 "
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:drawableStart="@drawable/copyrightsymbol"
+        android:drawablePadding="5dp"
+        />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        android:padding="7dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo"
+        android:background="@drawable/circularbackground"
         />
 </LinearLayout>
+</ScrollView>
