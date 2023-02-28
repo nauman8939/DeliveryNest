@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/home_icon_menu"
+            android:id="@+id/nav_home"
+            android:title="@string/home"
+            />
+        <item
+            android:icon="@drawable/menu_history"
+            android:id="@+id/nav_search"
+            android:title="@string/history" />
+        <item
+            android:icon="@drawable/menu_track"
+            android:id="@+id/nav_all_categories"
+            android:title="@string/track" />
+        <item
+            android:icon="@drawable/menu_complaints"
+            android:id="@+id/nav_add_missing_place"
+            android:title="@string/complaints" />
+    </group>
+
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:icon="@drawable/splashicon"
+                    android:id="@+id/nav_login"
+                    android:title="@string/profile"
+                    android:onClick="UserProfile"/>
+                <item
+                    android:icon="@drawable/menu_update"
+                    android:id="@+id/nav_profile"
+                    android:title="@string/update"
+                    android:onClick="UserProfile"/>
+                <item
+                    android:icon="@drawable/menu_logout"
+                    android:id="@+id/nav_logout"
+                    android:title="@string/logout"
+                    android:onClick="logout"/>
+            </group>
+        </menu>
+    </item>
+
+
+    <item android:title="Share">
+        <menu>
+            <group android:checkableBehavior="none">
+                <item
+                    android:icon="@drawable/menu_share"
+                    android:id="@+id/nav_share"
+                    android:title="@string/share" />
+                <item
+                    android:icon="@drawable/menu_rate"
+                    android:id="@+id/nav_rate_us"
+                    android:title="@string/rateus" />
+            </group>
+        </menu>
+    </item>
+</menu>
