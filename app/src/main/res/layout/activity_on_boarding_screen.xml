@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OnBoardingScreen"
-    android:background="#f5f6f8"
+    android:background="#ece9e4"
     android:padding="20dp">
 
     <androidx.viewpager.widget.ViewPager
