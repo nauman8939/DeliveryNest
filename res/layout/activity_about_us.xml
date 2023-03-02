@@ -5,32 +5,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B6664B"
+    android:background="@drawable/aboutusbackground"
     tools:context=".AboutUs"
     >
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="100dp"
+        android:background="@drawable/curve_background"
+        android:layout_gravity="center_horizontal"
+        >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:text="Meet Our Team"
-        android:textColor="#fff"
+        android:textColor="#B6664B"
         android:textSize="33sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"
-        />
+        android:textStyle="bold" />
+    </LinearLayout>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="430dp"
         android:layout_margin="14dp"
         app:cardCornerRadius="15dp"
         android:background="#fff"
-        app:cardElevation="20dp"
+        app:cardElevation="100dp"
         >
         <ImageView
             android:layout_width="170dp"
@@ -97,7 +105,7 @@
         android:layout_margin="14dp"
         app:cardCornerRadius="15dp"
         android:background="#fff"
-        app:cardElevation="20dp"
+        app:cardElevation="100dp"
         >
     <ImageView
         android:layout_width="170dp"
@@ -165,7 +173,7 @@
         android:layout_margin="14dp"
         app:cardCornerRadius="15dp"
         android:background="#fff"
-        app:cardElevation="20dp"
+        app:cardElevation="100dp"
         >
         <ImageView
             android:layout_width="170dp"
@@ -228,26 +236,34 @@
                 android:textSize="24sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:background="#fff"
+        app:cardElevation="100dp"
+        >
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:background="#fff"
+            />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DeliveryNest , 2023 "
-        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:textSize="20sp"
         android:drawableStart="@drawable/copyrightsymbol"
         android:drawablePadding="5dp"
         />
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="centerCrop"
-        android:padding="7dp"
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/logo"
-        android:background="@drawable/circularbackground"
-        />
+    </LinearLayout>
 </LinearLayout>
 </ScrollView>
