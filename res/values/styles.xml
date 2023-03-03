@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="layout" parent="ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
+        <item name="android:radius">10dp</item>
+    </style>
+
+    <style name="navigationTheme">
+        <item name="colorPrimary">@color/secondaryappcolor</item>
+        <item name="colorControlHighlight">@color/black</item>
+    </style>
+
+    <style name="Widget.Theme.DeliveryNest.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+    <!-- Base application theme. -->
+
+</resources>

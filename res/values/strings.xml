@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">DeliveryNest</string>
+    <string name="slogan">Sab Kuch Deliver Hojaega</string>
+
+    <string name="hide_bottom_view_on_scroll_behavior">androidx.coordinatorlayout.widget.SwipeDismissBehavior</string>
+
+
+    <!--Strings for on boarding Screen-->
+    <string name="first_slide_tittle">What We Do?</string>
+    <string name="second_slide_tittle">Why Should You Trust Us</string>
+    <string name="third_slide_tittle">Our Services</string>
+    <string name="fourth_slide_tittle">Thankyou For Trusting On Us</string>
+
+    <!--description Strings for on boarding Screen-->
+    <string name="first_slide_desc">We Provide Instant Pick-Up And Delivery Service.We Deliver Your Parcel Within That Day Or Given Time Slots</string>
+    <string name="second_slide_desc">We Have Professional Trained Service Providers.Which Ensures that Your Parcel Get Delivered Safely And Damage free</string>
+    <string name="third_slide_desc">We Provide Courier Service On Bike for small Packages, Tempo for Large Parcels And Also Provide Packing and Moving Service</string>
+
+
+    <!--Buttons    -->
+    <string name="skip_btn">Skip</string>
+    <string name="next_btn">Next</string>
+    <string name="lets_get_started">Lets Get Started </string>
+
+    <!--menu    -->
+    <string name="home">HOME</string>
+    <string name="history">ORDER HISTORY</string>
+    <string name="track">TRACK BY ID</string>
+    <string name="complaints">COMPLAINTS</string>
+    <string name="profile">PROFILE</string>
+    <string name="update">UPDATE PROFILE</string>
+    <string name="logout">LOGOUT</string>
+    <string name="share">SHARE</string>
+    <string name="rateus">RATE US</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="otpmsg">Enter one time password sent on\n+917038230674</string>
+    <string name="address">Address:Flat 101,Dream Magestics Hadapsar</string>
+
+
+    <string-array name="Book_Options">
+        <item>Book a Courier</item>
+        <item>Class 2</item>
+        <item>Class 3</item>
+        <item>Class 4</item>
+    </string-array>
+    <string-array name="Order_weight">
+        <item>Upto 1Kg</item>
+        <item>Upto 2kg</item>
+        <item>Upto 5kg</item>
+        <item>Upto 10kg</item>
+    </string-array>
+    <string-array name="Additional_Services">
+        <item>Additional Services</item>
+        <item>Service 1</item>
+        <item>Service 2</item>
+    </string-array>
+    <string-array name="PaymentMethods">
+        <item>Cash</item>
+        <item>Net Banking</item>
+        <item>Debit Card</item>
+        <item>Credit Card</item>
+    </string-array>
+</resources>
