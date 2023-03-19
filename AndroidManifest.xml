@@ -25,6 +25,10 @@
             android:name=".CreateOrder"
             android:exported="false" />
         <activity
+            android:name=".AboutUs"
+            android:exported="false" />
+
+        <activity
             android:name=".OrderSummary"
             android:exported="false" />
         <activity

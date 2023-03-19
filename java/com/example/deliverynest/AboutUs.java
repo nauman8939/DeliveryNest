@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class AboutUs extends AppCompatActivity {
+public class AboutUs extends BaseActivity {
     ImageButton GithubNauman,GithubTejas,GithubKshitij,
     LinkedinNauman,LinkedinTejas,LinkedinKshitij,
     TelegramNauman,TelegramTejas,TelegramKshitij;

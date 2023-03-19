@@ -53,8 +53,12 @@
                 <item
                     android:icon="@drawable/menu_rate"
                     android:id="@+id/nav_rate_us"
-                    android:title="@string/rateus" />
+                    android:title="ABOUT US"
+                    android:onClick="AboutUs"/>
             </group>
         </menu>
     </item>
+
+
+
 </menu>

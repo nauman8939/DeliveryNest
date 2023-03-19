@@ -237,6 +237,28 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         startActivity(i);
 
     }
+    public void AboutUs(MenuItem item) {
+
+        Intent intent = new Intent(UserDashboard.this, AboutUs.class);
+
+        startActivity(intent);
+    }
 
 
+    public void naviagtionDrawerM(MenuItem item) {
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
+        menuIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (drawerLayout.isDrawerVisible(GravityCompat.START))
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                else drawerLayout.openDrawer(GravityCompat.START);
+
+            }
+        });
+        animateNavigationDrawer();
+
+    }
 }

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class CreateOrder extends AppCompatActivity  {
+public class CreateOrder extends BaseActivity  {
     Button BtnDocuments,BtnFood,BtnGroceries,BtnCloth,NextButton;
     EditText Item,SenderName,SenderPhone,PickUpAddress,ReceiverName,ReceiverPhone,ReceiverAddress,ItemNameToSend,ParcelValue;
     Spinner BookOption,OrderWeight,SenderLandmark,ReceiverLandmark;
@@ -86,7 +86,7 @@ public class CreateOrder extends AppCompatActivity  {
                     choice=CheckSpinnerField((Spinner)obj);
                 }
                 if(choice){
-                    Intent intent=new Intent(getApplicationContext(),PaymentPage.class);
+                    Intent intent=new Intent(getApplicationContext(),OrderSummary.class);
                     startActivity(intent);
                 }
             }
