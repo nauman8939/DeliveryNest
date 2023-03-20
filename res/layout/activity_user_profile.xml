@@ -220,6 +220,24 @@
                                 android:text="Update"
                                 android:textColor="@color/white" />
                         </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/InfoLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="168dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="193dp"
+                                android:text="CopyRight DeliveryNest 2023"
+                                android:textAlignment="center"
+                                android:textColor="#000"
+                                android:textSize="25sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </LinearLayout>
                     </com.google.android.material.textfield.TextInputLayout>
                 </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.textfield.TextInputLayout>

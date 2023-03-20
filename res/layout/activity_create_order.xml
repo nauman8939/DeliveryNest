@@ -154,7 +154,7 @@
                     android:drawableEnd="@drawable/locationicon"
                     android:hint="Address"
                     android:text=""
-                    android:textSize="22sp" />
+                    android:textSize="16sp" />
 
                 <Spinner
                     android:id="@+id/SenderLandmark"
@@ -162,7 +162,7 @@
                     android:layout_height="60dp"
                     android:layout_marginTop="0dp"
                     android:text=""
-                    android:entries="@array/Landmarks" />
+                    android:entries="@array/Landmarks"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -199,14 +199,14 @@
                     android:layout_marginTop="20dp"
                     android:drawableEnd="@drawable/locationicon"
                     android:hint="Address"
-                    android:textSize="22sp" />
+                    android:textSize="16sp" />
                 <Spinner
                     android:id="@+id/ReceiverLandmark"
                     android:layout_width="200dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="20dp"
                     android:text=""
-                    android:entries="@array/Landmarks" />
+                    android:entries="@array/Landmarks"/>
 
             </LinearLayout>
         </LinearLayout>

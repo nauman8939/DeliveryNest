@@ -1,7 +1,5 @@
 package com.example.deliverynest;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +8,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Arrays;
 import java.util.Iterator;
 
@@ -64,8 +65,8 @@ public class CreateOrder extends AppCompatActivity  {
 
         NextButton=findViewById(R.id.NextButton);
 
-        EditText EditTextArr[]={SenderName,SenderPhone,PickUpAddress,ReceiverName,ReceiverPhone,ReceiverAddress,ItemNameToSend,ParcelValue};
-        Spinner spinner[]={SenderLandmark,ReceiverLandmark};
+        EditText[] EditTextArr ={SenderName,SenderPhone,PickUpAddress,ReceiverName,ReceiverPhone,ReceiverAddress,ItemNameToSend,ParcelValue};
+        Spinner[] spinner ={SenderLandmark,ReceiverLandmark};
         NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,8 +86,35 @@ public class CreateOrder extends AppCompatActivity  {
                     Object obj=iterator1.next();
                     choice=CheckSpinnerField((Spinner)obj);
                 }
+                if(SenderName.getText()==ReceiverName.getText()){
+                    SenderName.setError("Sender and Receiver Can't be same ");
+                    ReceiverName.setError("Sender and Receiver Can't be same ");
+                    choice=false;
+                }
+                if(SenderPhone.getText()==ReceiverPhone.getText()){
+                    SenderPhone.setError("Sender and Receiver Phone Can't be same ");
+                    ReceiverPhone.setError("Sender and Receiver Phone Can't be same ");
+                    choice=false;
+                }
+                if(PickUpAddress.getText()==ReceiverAddress.getText()){
+                    PickUpAddress.setError("Sender and Receiver Address Can't be same ");
+                    ReceiverAddress.setError("Sender and Receiver Address Can't be same ");
+                    choice=false;
+                }
                 if(choice){
-                    Intent intent=new Intent(getApplicationContext(),PaymentPage.class);
+                    Intent intent=new Intent(getApplicationContext(),OrderSummary.class);
+                    intent.putExtra("SenderName",SenderName.getText().toString());
+                    intent.putExtra("SenderPhone",SenderPhone.getText().toString());
+                    intent.putExtra("PickUpAddress",PickUpAddress.getText().toString());
+                    intent.putExtra("ReceiverName",ReceiverName.getText().toString());
+                    intent.putExtra("ReceiverPhone",ReceiverPhone.getText().toString());
+                    intent.putExtra("ReceiverAddress",ReceiverAddress.getText().toString());
+                    intent.putExtra("ItemNameToSend",ItemNameToSend.getText().toString());
+                    intent.putExtra("ParcelValue",ParcelValue.getText().toString());
+                    intent.putExtra("SenderLandmark",SenderLandmark.getSelectedItem().toString());
+                    intent.putExtra("ReceiverLandmark",ReceiverLandmark.getSelectedItem().toString());
+                    intent.putExtra("PreferBagOption",PreferBagOption.getText().toString());
+                    intent.putExtra("NotifyPersonOption",NotifyPersonOption.getText().toString());
                     startActivity(intent);
                 }
             }

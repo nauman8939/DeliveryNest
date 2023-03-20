@@ -1,8 +1,5 @@
 package com.example.deliverynest;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -10,6 +7,9 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.chaos.view.PinView;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -87,7 +87,7 @@ public class VerifyOTP extends AppCompatActivity {
         // [END start_phone_auth]
     }
 
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
+    private final PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
             new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
                 @Override
@@ -108,7 +108,7 @@ public class VerifyOTP extends AppCompatActivity {
 
                 @Override
                 public void onVerificationFailed(@NonNull FirebaseException e) {
-                    Toast.makeText(VerifyOTP.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VerifyOTP.this, e.getMessage(), Toast.LENGTH_LONG).show();
 
                 }
             };

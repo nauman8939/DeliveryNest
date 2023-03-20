@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DeliveryNest</string>
+    <string name="app_name">Delivery Nest</string>
     <string name="slogan">Sab Kuch Deliver Hojaega</string>
 
     <string name="hide_bottom_view_on_scroll_behavior">androidx.coordinatorlayout.widget.SwipeDismissBehavior</string>
@@ -63,5 +63,57 @@
         <item>Net Banking</item>
         <item>Debit Card</item>
         <item>Credit Card</item>
+    </string-array>
+    <string-array name="Landmarks">
+        <item>Nearest Area</item>
+        <item>Adarsh Nagar</item>
+        <item>Aundh</item>
+        <item>Baner</item>
+        <item>Bhandarkar Road</item>
+        <item>Bund Garden</item>
+        <item>Camp</item>
+        <item>Chakan</item>
+        <item>Deccan Gymkhana</item>
+        <item>Dhole Patil Road</item>
+        <item>Dronje</item>
+        <item>Hinjewadi</item>
+        <item>Jangli Maharaj Road</item>
+        <item>Kalyani Nagar</item>
+        <item>Kharadi</item>
+        <item>Koregaon Park</item>
+        <item>NH-04</item>
+        <item>Pimpri-Chichwad</item>
+        <item>Pirangut</item>
+        <item>Pune Station</item>
+        <item>Ranjangaon</item>
+        <item>Ravet</item>
+        <item>Shivaji Nagar</item>
+        <item>Undri</item>
+        <item>Viman Nagar</item>
+        <item>Wakad</item>
+        <item>Aditya Birla Memorial Hospital</item>
+        <item>Aga Khan Palace</item>
+        <item>Amanora Town Center</item>
+        <item>Chaturshringi Temple</item>
+        <item>Dagadu Seth Ganpati Temple</item>
+        <item>Deenanath Mangeshkar Hospital</item>
+        <item>Hardikar Hospital</item>
+        <item>Inorbit Mall Pune</item>
+        <item>Ishanya Mall</item>
+        <item>Jehangir Hospital</item>
+        <item>KEM Hospital Pune</item>
+        <item>Laxmi Road</item>
+        <item>Lohegaon Airport</item>
+        <item>Osho Commune International</item>
+        <item>Phoenix Market City Pune</item>
+        <item>Pune Junction Railway Station</item>
+        <item>Rajiv Gandhi Zoological Park</item>
+        <item>Ruby Hall Hospital</item>
+        <item>Sahyadri Hospital Yerwada</item>
+        <item>Sancheti Hospital Shivajinagar</item>
+        <item>Saras Baug Temple</item>
+        <item>Seasons Mall</item>
+        <item>Shaniwar Wada</item>
+        <item>Shivajinagar Station</item>
     </string-array>
 </resources>
