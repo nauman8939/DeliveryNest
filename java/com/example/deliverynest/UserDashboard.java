@@ -186,9 +186,7 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
     }
 
     public void animateNavigationDrawer() {
-        //drawerLayout.setScrimColor(getResources().getColor(R.color.secondaryappcolor));
-        //Add any color or remove it to use the default one!
-        //To make it transparent use Color.Transparent in side setScrimColor();
+
         drawerLayout.setScrimColor(Color.TRANSPARENT);
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
