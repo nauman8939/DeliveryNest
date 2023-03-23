@@ -18,7 +18,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int VIEW_TYPE_NO_ORDERS_FOUND = 0;
     private static final int VIEW_TYPE_RECENT_ORDER_DESIGN = 1;
 
-    private Context context;
+    private final Context context;
     private ArrayList<RecentOrders> list;
 
     public MyAdapter(Context context, ArrayList<RecentOrders> list) {
