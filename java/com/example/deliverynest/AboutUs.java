@@ -5,12 +5,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class AboutUs extends AppCompatActivity {
+public class AboutUs extends BaseActivity {
     ImageButton GithubNauman,GithubTejas,GithubKshitij,
-    LinkedinNauman,LinkedinTejas,LinkedinKshitij,
-    TelegramNauman,TelegramTejas,TelegramKshitij;
+            LinkedinNauman,LinkedinTejas,LinkedinKshitij,
+            TelegramNauman,TelegramTejas,TelegramKshitij;
 
 
     @Override
