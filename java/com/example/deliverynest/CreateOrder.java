@@ -27,11 +27,11 @@ public class CreateOrder extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_order);
 
-        BtnDocuments=(Button) findViewById(R.id.Documents);
-        BtnFood=(Button) findViewById(R.id.Food);
-        BtnGroceries=(Button) findViewById(R.id.Groceries);
-        BtnCloth=(Button) findViewById(R.id.Cloth);
-        Item=(EditText)findViewById(R.id.ItemNameToSend);
+        BtnDocuments= findViewById(R.id.Documents);
+        BtnFood= findViewById(R.id.Food);
+        BtnGroceries= findViewById(R.id.Groceries);
+        BtnCloth= findViewById(R.id.Cloth);
+        Item= findViewById(R.id.ItemNameToSend);
 
         BtnDocuments.setOnClickListener(v -> {
             Item.setText("Documents");
@@ -133,7 +133,7 @@ public class CreateOrder extends AppCompatActivity  {
     public boolean CheckSpinnerField(Spinner FieldNameReceived){
         if(FieldNameReceived.getSelectedItem()==FieldNameReceived.getItemAtPosition(0)){
             TextView errorText = (TextView)FieldNameReceived.getSelectedView();
-            errorText.setError("Choose One Value");
+            errorText.setError("Choose atleast One Value");
             return false;
         }
         else{
