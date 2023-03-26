@@ -1,36 +1,20 @@
 package com.example.deliverynest;
-
-import android.content.ContentResolver;
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.*;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.view.WindowManager;
+import android.os.Handler;
+import android.view.*;
 import android.webkit.MimeTypeMap;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.Toast;
-
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-
-import java.util.HashMap;
-import java.util.Random;
+import com.google.android.gms.tasks.*;
+import com.google.firebase.database.*;
+import com.google.firebase.storage.*;
+import java.util.*;
 
 public class ReportIssue extends AppCompatActivity {
-    public static final String SHARED_PREFS = "shared_prefs";
+    private LoadingDialog aLodingDialog;
     private final StorageReference reference= FirebaseStorage.getInstance().getReference().child("complaints");
     Spinner spinner;
     EditText editText;
@@ -46,6 +30,7 @@ public class ReportIssue extends AppCompatActivity {
         setContentView(R.layout.activity_report_issue);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        aLodingDialog = new LoadingDialog(ReportIssue.this);
         spinner = (Spinner) findViewById(R.id.categorySpinner);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, issuecategory);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -77,6 +62,7 @@ public class ReportIssue extends AppCompatActivity {
                     filref.putFile(imgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            loader();
                             int id=new Random().nextInt(10000);
                             map.put("complaint_id",id);
                             map.put("username", username);
@@ -90,6 +76,7 @@ public class ReportIssue extends AppCompatActivity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
+                                    loader();
                                     Toast.makeText(ReportIssue.this, "Error : Failed to Register", Toast.LENGTH_SHORT).show();
                                     Intent intent=new Intent(getApplicationContext(),ComplaintSection.class);
                                     startActivity(intent);
@@ -115,6 +102,7 @@ public class ReportIssue extends AppCompatActivity {
                 }
             });
         }
+
         protected void onActivityResult(int requestCode, int resultCode, Intent data){
             super.onActivityResult(requestCode, resultCode, data);
             if (requestCode == 2){
@@ -133,6 +121,18 @@ public class ReportIssue extends AppCompatActivity {
                 return true;
             }
         }
+    private void loader() {
+        aLodingDialog.show();
+
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                aLodingDialog.cancel();
+            }
+        };
+        handler.postDelayed(runnable, 3000);
+    }
         public boolean validateSpinner(){
             String spinnerData = spinner.getAdapter().toString();
             if (spinner.getSelectedItemPosition()==0){
@@ -146,6 +146,5 @@ public class ReportIssue extends AppCompatActivity {
         }
         public void backpressed(View view) {
             super.onBackPressed();
-
         }
     }
