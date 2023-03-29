@@ -135,6 +135,7 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         recyclerView.setAdapter(myAdapter);
 
         Query query = database.orderByChild("orders").equalTo(userName).limitToLast(5);
+
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
