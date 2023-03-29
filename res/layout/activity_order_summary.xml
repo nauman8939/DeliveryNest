@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#edf3f8"
+    android:background="#f5f6f8"
     tools:context=".OrderSummary">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#edf3f8">
+        android:background="#f5f6f8">
 
         <RelativeLayout
             android:id="@+id/headerlayout"

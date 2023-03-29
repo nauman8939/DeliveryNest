@@ -31,7 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class VerifyOTP extends AppCompatActivity {
+public class VerifyOTP extends BaseActivity {
     private static final int PERMISSION_REQUEST_SMS_RECEIVE = 1;
     PinView pinFromUser;
     String codeBySystem;

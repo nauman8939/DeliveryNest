@@ -16,7 +16,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SecondSplashScreen extends AppCompatActivity {
+public class SecondSplashScreen extends BaseActivity {
     private static final int LOADING_DIALOG_DELAY = 3000;
     private LoadingDialog mLoadingDialog;
     private ConnectivityManager mConnectivityManager;

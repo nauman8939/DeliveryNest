@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PaymentPage extends AppCompatActivity {
+public class PaymentPage extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

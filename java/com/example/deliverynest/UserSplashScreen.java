@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
-public class UserSplashScreen extends AppCompatActivity {
+public class UserSplashScreen extends BaseActivity {
     private SessionManager sessionManager;
     private SharedPreferences prefs;
 

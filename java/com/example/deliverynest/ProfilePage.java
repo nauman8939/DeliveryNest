@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProfilePage extends AppCompatActivity {
+public class ProfilePage extends BaseActivity {
     EditText e1,e2,e3,e4;
     LottieAnimationView lottie;
     TextView t1;

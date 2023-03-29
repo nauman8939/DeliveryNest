@@ -1,7 +1,5 @@
 package com.example.deliverynest;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +8,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Arrays;
 import java.util.Iterator;
 
@@ -26,11 +27,11 @@ public class CreateOrder extends BaseActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_order);
 
-        BtnDocuments=(Button) findViewById(R.id.Documents);
-        BtnFood=(Button) findViewById(R.id.Food);
-        BtnGroceries=(Button) findViewById(R.id.Groceries);
-        BtnCloth=(Button) findViewById(R.id.Cloth);
-        Item=(EditText)findViewById(R.id.ItemNameToSend);
+        BtnDocuments= findViewById(R.id.Documents);
+        BtnFood= findViewById(R.id.Food);
+        BtnGroceries= findViewById(R.id.Groceries);
+        BtnCloth= findViewById(R.id.Cloth);
+        Item= findViewById(R.id.ItemNameToSend);
 
         BtnDocuments.setOnClickListener(v -> {
             Item.setText("Documents");
@@ -64,8 +65,8 @@ public class CreateOrder extends BaseActivity  {
 
         NextButton=findViewById(R.id.NextButton);
 
-        EditText EditTextArr[]={SenderName,SenderPhone,PickUpAddress,ReceiverName,ReceiverPhone,ReceiverAddress,ItemNameToSend,ParcelValue};
-        Spinner spinner[]={SenderLandmark,ReceiverLandmark};
+        EditText[] EditTextArr ={SenderName,SenderPhone,PickUpAddress,ReceiverName,ReceiverPhone,ReceiverAddress,ItemNameToSend,ParcelValue};
+        Spinner[] spinner ={SenderLandmark,ReceiverLandmark};
         NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,8 +86,39 @@ public class CreateOrder extends BaseActivity  {
                     Object obj=iterator1.next();
                     choice=CheckSpinnerField((Spinner)obj);
                 }
+                if(SenderName.getText()==ReceiverName.getText()){
+                    SenderName.setError("Sender and Receiver Can't be same ");
+                    ReceiverName.setError("Sender and Receiver Can't be same ");
+                    choice=false;
+                }
+                if(SenderPhone.getText()==ReceiverPhone.getText()){
+                    SenderPhone.setError("Sender and Receiver Phone Can't be same ");
+                    ReceiverPhone.setError("Sender and Receiver Phone Can't be same ");
+                    choice=false;
+                }
+                if(PickUpAddress.getText()==ReceiverAddress.getText()){
+                    PickUpAddress.setError("Sender and Receiver Address Can't be same ");
+                    ReceiverAddress.setError("Sender and Receiver Address Can't be same ");
+                    choice=false;
+                }
                 if(choice){
                     Intent intent=new Intent(getApplicationContext(),OrderSummary.class);
+                    intent.putExtra("SenderName",SenderName.getText().toString());
+                    intent.putExtra("SenderPhone",SenderPhone.getText().toString());
+                    intent.putExtra("PickUpAddress",PickUpAddress.getText().toString());
+                    intent.putExtra("ReceiverName",ReceiverName.getText().toString());
+                    intent.putExtra("ReceiverPhone",ReceiverPhone.getText().toString());
+                    intent.putExtra("ReceiverAddress",ReceiverAddress.getText().toString());
+                    intent.putExtra("ItemNameToSend",ItemNameToSend.getText().toString());
+                    intent.putExtra("ParcelValue",ParcelValue.getText().toString());
+                    intent.putExtra("SenderLandmark",SenderLandmark.getSelectedItem().toString());
+                    intent.putExtra("ReceiverLandmark",ReceiverLandmark.getSelectedItem().toString());
+                    intent.putExtra("BookOption",BookOption.getSelectedItem().toString());
+                    intent.putExtra("OrderWeight",OrderWeight.getSelectedItem().toString());
+
+                    intent.putExtra("OrderWeightPO",OrderWeight.getSelectedItemPosition());
+                    intent.putExtra("PreferBagOption",PreferBagOption.getText().toString());
+                    intent.putExtra("NotifyPersonOption",NotifyPersonOption.getText().toString());
                     startActivity(intent);
                 }
             }
@@ -105,7 +137,7 @@ public class CreateOrder extends BaseActivity  {
     public boolean CheckSpinnerField(Spinner FieldNameReceived){
         if(FieldNameReceived.getSelectedItem()==FieldNameReceived.getItemAtPosition(0)){
             TextView errorText = (TextView)FieldNameReceived.getSelectedView();
-            errorText.setError("Choose One Value");
+            errorText.setError("Choose atleast One Value");
             return false;
         }
         else{

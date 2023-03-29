@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-public class OnBoardingScreen extends AppCompatActivity {
+public class OnBoardingScreen extends BaseActivity {
 
     //Variables
     ViewPager viewPager;

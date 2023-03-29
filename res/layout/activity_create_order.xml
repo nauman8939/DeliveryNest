@@ -290,6 +290,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Parcel Value"
                 android:text=""
+                android:inputType="number"
                 android:textSize="20sp"
                 />
         </LinearLayout>
