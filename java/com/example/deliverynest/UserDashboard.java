@@ -1,23 +1,20 @@
 package com.example.deliverynest;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.animation.content.Content;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -88,10 +85,6 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         recyclerView(username);
         getRecords();
         animateNavigationDrawer();
-
-
-
-
     }
     public void getRecords(){
         DatabaseReference reference=FirebaseDatabase.getInstance().getReference().child("users").child(username);
@@ -101,10 +94,7 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
                 for (DataSnapshot datasnapshot: snapshot.getChildren()) {
                     if(datasnapshot.getKey().equals("name")){
                         userfullname.setText("Hey! , "+datasnapshot.getValue().toString()+".");
-
                     }
-
-
                 }
             }
             @Override
@@ -222,21 +212,20 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
-    public  void UserProfile(View view){
-        Intent i = new Intent(getApplicationContext(),User_Profile.class);
+    public void ShowComplaints(MenuItem item){
+        Intent i = new Intent(getApplicationContext(),ComplaintSection.class);
         startActivity(i);
-    }
-
-    public void UserProfile(MenuItem item) {
-        Intent i = new Intent(getApplicationContext(),OrderSummary.class);
-        startActivity(i);
-
     }
     public void CreateOrder(MenuItem item) {
         Intent i = new Intent(getApplicationContext(),CreateOrder.class);
         startActivity(i);
-
     }
-
-
+    public void ShowProfile(MenuItem item){
+        Intent i = new Intent(getApplicationContext(),User_Profile.class);
+        startActivity(i);
+    }
+    public void ShowAbout(MenuItem item){
+        Intent i = new Intent(getApplicationContext(),AboutUs.class);
+        startActivity(i);
+    }
 }

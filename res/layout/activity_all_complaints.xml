@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".All_Complaints"
+    >
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:background="@drawable/backicon"
+        android:onClick="backpressed"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:letterSpacing="0.1"
+        android:text="DeliveryNest"
+        android:textColor="@color/secondaryappcolor"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:text="Help and Support"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="45dp"
+        android:text="Your Complaints"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        />
+
+    <ListView
+        android:id="@+id/ComplaintView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:divider="#B6664B"
+        android:dividerHeight="2dp"
+        android:listSelector="#edf3f8"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/notFoundAnimation"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/notfound"/>
+</LinearLayout>

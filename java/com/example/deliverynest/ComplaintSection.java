@@ -9,14 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ComplaintSection extends AppCompatActivity {
 
-    TextView textView;
+    TextView textView4,textView5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complaint_section);
 
-        textView = (TextView) findViewById(R.id.textView4);
-        textView.setOnClickListener(new View.OnClickListener() {
+        textView4 = (TextView) findViewById(R.id.textView4);
+        textView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ComplaintSection.this, ReportIssue.class);
@@ -25,5 +25,16 @@ public class ComplaintSection extends AppCompatActivity {
             }
         });
 
+        textView5=findViewById(R.id.textView5);
+        textView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ComplaintSection.this, All_Complaints.class);
+                startActivity(intent);
+            }
+        });
+    }
+    public void backpressed(View view) {
+        super.onBackPressed();
     }
 }

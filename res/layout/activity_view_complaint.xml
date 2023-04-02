@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewComplaint">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="390dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
+            android:text="Complaint Details "
+            android:textAlignment="center"
+            android:textColor="#B6664B"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="298dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="95dp"
+            android:text="Complaint Date : "
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="298dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="180dp"
+            android:text="Complaint Completion Status : "
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/subject"
+            android:layout_width="298dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="272dp"
+            android:text="Ccomplaint Subject : "
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="297dp"
+            android:layout_height="162dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="360dp"
+            android:text="Description : "
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/resolution"
+            android:layout_width="298dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="560dp"
+            android:text="Complaint Resolution : "
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

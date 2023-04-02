@@ -19,16 +19,22 @@
         android:theme="@style/Theme.DeliveryNest"
         tools:targetApi="31">
         <activity
-            android:name=".ReportIssue"
+            android:name=".ViewComplaint"
             android:exported="false" />
         <activity
-            android:name=".ComplaintSection"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".AboutUs"
+            android:exported="true">
         </activity>
+        <activity
+            android:name=".All_Complaints"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ReportIssue"
+            android:exported="true"></activity>
+        <activity
+            android:name=".ComplaintSection"
+            android:exported="false"></activity>
         <activity
             android:name=".Payment_Method"
             android:exported="false" />
@@ -65,7 +71,11 @@
         <activity
             android:name=".UserSplashScreen"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

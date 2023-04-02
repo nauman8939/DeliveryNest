@@ -50,6 +50,7 @@ public class ReportIssue extends AppCompatActivity {
                 String issueDesc = editText.getText().toString();
                 HashMap<String, String> usersDetails = sessionManager.getUsersDetailsFromSession();
                 String username = usersDetails.get(SessionManager.KEY_USERNAME);
+                long id=new Random().nextLong();
 
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("complaints");
                 HashMap map = new HashMap();
@@ -58,13 +59,20 @@ public class ReportIssue extends AppCompatActivity {
                 if (imgUri !=null) {
                     ContentResolver cr=getContentResolver();
                     MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
-                    StorageReference filref=reference.child(System.currentTimeMillis()+"."+mimeTypeMap.getExtensionFromMimeType(cr.getType(imgUri)));
+                    StorageReference filref=reference.child(id+"."+mimeTypeMap.getExtensionFromMimeType(cr.getType(imgUri)));
                     filref.putFile(imgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             loader();
-                            int id=new Random().nextInt(10000);
+
+                            String date= null;
+                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                                date = ""+java.time.LocalDate.now();
+                            }
                             map.put("complaint_id",id);
+                            map.put("complaintDate",date);
+                            map.put("complaint_status","Incomplete");
+                            map.put("complaint_resolution","");
                             map.put("username", username);
                             db.child(""+id).setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -76,7 +84,6 @@ public class ReportIssue extends AppCompatActivity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    loader();
                                     Toast.makeText(ReportIssue.this, "Error : Failed to Register", Toast.LENGTH_SHORT).show();
                                     Intent intent=new Intent(getApplicationContext(),ComplaintSection.class);
                                     startActivity(intent);
