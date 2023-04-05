@@ -1,6 +1,7 @@
 package com.example.deliverynest;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,5 +26,8 @@ public class ViewComplaint extends AppCompatActivity {
         ((TextView)findViewById(R.id.date)).append(cdate);
         ((TextView)findViewById(R.id.resolution)).append(resolution);
         ((TextView)findViewById(R.id.description)).append(description);
+    }
+    public void backpressed(View view) {
+        super.onBackPressed();
     }
 }

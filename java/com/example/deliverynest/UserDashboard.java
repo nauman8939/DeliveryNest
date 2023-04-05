@@ -224,8 +224,16 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         Intent i = new Intent(getApplicationContext(),User_Profile.class);
         startActivity(i);
     }
+    public void ShowProfile(View view){
+        Intent i = new Intent(getApplicationContext(),User_Profile.class);
+        startActivity(i);
+    }
     public void ShowAbout(MenuItem item){
         Intent i = new Intent(getApplicationContext(),AboutUs.class);
+        startActivity(i);
+    }
+    public void ShowOrderHistory(MenuItem item){
+        Intent i = new Intent(getApplicationContext(),All_Orders.class);
         startActivity(i);
     }
 }

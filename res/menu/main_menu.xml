@@ -9,7 +9,9 @@
         <item
             android:icon="@drawable/menu_history"
             android:id="@+id/nav_search"
-            android:title="@string/history" />
+            android:onClick="ShowOrderHistory"
+            android:title="@string/history"
+            />
         <item
             android:icon="@drawable/menu_track"
             android:id="@+id/nav_all_categories"

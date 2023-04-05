@@ -20,7 +20,6 @@
         app:headerLayout="@layout/menu_header"
         app:menu="@menu/main_menu" />
 
-
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
