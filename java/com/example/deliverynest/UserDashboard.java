@@ -24,7 +24,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
@@ -34,6 +33,7 @@ import java.util.HashMap;
 public class UserDashboard extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
     SessionManager sessionManager;
     static final float END_SCALE = 0.7f;
+    int i=0,j=0;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     LottieAnimationView menuIcon;
@@ -47,6 +47,7 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
     ImageSlider imageSlider;
     String fullname,username;
     TextView userfullname;
+    String user,status;
 
 
     @Override
@@ -117,6 +118,9 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
     }
 
     private void recyclerView(String userName) {
+        String[] FinalString =new String[50];
+        recyclerView = findViewById(R.id.Recent_Orders);
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
@@ -124,27 +128,48 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         myAdapter = new MyAdapter(this, list);
         recyclerView.setAdapter(myAdapter);
 
-        Query query = database.orderByChild("orders").equalTo(userName).limitToLast(5);
-        query.addValueEventListener(new ValueEventListener() {
+        database = FirebaseDatabase.getInstance().getReference("Orders");
+        database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                list.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String orderId = dataSnapshot.child("order_id").getValue(String.class);
-                    String status = dataSnapshot.child("status").getValue(String.class);
-                    RecentOrders recentOrders = new RecentOrders();
-                    recentOrders.order_id = orderId;
-                    recentOrders.status = status;
-                    list.add(recentOrders);
+                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                    FinalString[j] = snapshot1.getKey();
+                    j++;
+                }
+                for (i = 0; i < j; i++) {
+                    database = FirebaseDatabase.getInstance().getReference("Orders").child(FinalString[i]);
+                    String orderId = FinalString[i];
+                    database.addValueEventListener(new ValueEventListener()
+                    {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot)
+                        {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                if(dataSnapshot.getKey().equals("Status")){
+                                   status=dataSnapshot.getValue().toString();
+                                }
+                                else if(dataSnapshot.getKey().equals("LoggedUsername")){
+                                    user=dataSnapshot.getValue().toString();
+                                }
+                            }
+                            if(user.equals(userName)) {
+                                RecentOrders recentOrders = new RecentOrders();
+                                recentOrders.order_id = orderId;
+                                recentOrders.status = status;
+                                if(list.size()<5) {
+                                    list.add(recentOrders);
+                                }
+                                myAdapter.notifyDataSetChanged();
+                                recyclerView.setVisibility(myAdapter.getItemViewType(list.size()));
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    // Show orders in RecyclerView
-                    myAdapter.notifyDataSetChanged();
-                    recyclerView.setVisibility(View.VISIBLE);
-                    View noOrdersLayout = findViewById(R.id.Recent_Orders);
-                    noOrdersLayout.setVisibility(View.GONE);
+                        }
+                    });
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -233,6 +258,10 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         startActivity(i);
     }
     public void ShowOrderHistory(MenuItem item){
+        Intent i = new Intent(getApplicationContext(),All_Orders.class);
+        startActivity(i);
+    }
+    public void ShowOrderHistory(View view){
         Intent i = new Intent(getApplicationContext(),All_Orders.class);
         startActivity(i);
     }

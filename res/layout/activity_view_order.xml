@@ -292,14 +292,28 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
+            android:id="@+id/TrackBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
+            android:layout_marginStart="270dp"
             android:layout_marginTop="1285dp"
             android:backgroundTint="@color/secondaryappcolor"
             android:text="Track Order"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/CancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="1285dp"
+            android:backgroundTint="#DC143C"
+            android:text="Cancel Order"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

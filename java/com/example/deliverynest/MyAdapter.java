@@ -9,8 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.deliverynest.R;
-
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -25,7 +23,6 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.context = context;
         this.list = list;
     }
-
     @Override
     public int getItemViewType(int position) {
         if (list.size() == 0) {
@@ -75,14 +72,12 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView orderid, status;
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             orderid = itemView.findViewById(R.id.Order_id);
             status = itemView.findViewById(R.id.status);
         }
     }
-
     private static class NoOrdersFoundViewHolder extends RecyclerView.ViewHolder {
         public NoOrdersFoundViewHolder(@NonNull View itemView) {
             super(itemView);

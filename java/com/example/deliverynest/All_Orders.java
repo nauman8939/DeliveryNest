@@ -21,6 +21,7 @@ import java.util.HashMap;
 
 public class All_Orders extends AppCompatActivity {
     SessionManager sessionManager;
+    OrdersAdapter customAdapter;
     String orderid,assignedto,bookoption,itemnametosend,loggedusername,notifypersonoption,orderdate,orderweight,parcelvalue,pickupaddress,
     preferbagoption,receiveraddress,receiverlandmark,receivername,receiverphone,senderlandmark,sendername,senderphone,status,price;
     int symbol;
@@ -28,44 +29,36 @@ public class All_Orders extends AppCompatActivity {
     DatabaseReference reference;
     ArrayList <Order_POJO>arrayList = new ArrayList();
     LottieAnimationView animationView;
-    String[] FinalString =new String[50];
-    int i=0,j=0,k=0;
     ImageView i1;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_orders);
+        ListView l1 = findViewById(R.id.OrderView);
 
+        reference = FirebaseDatabase.getInstance().getReference().child("Orders");
+        reference.addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                                                        ShowOrders(snapshot1.getKey(), l1);
+                                                    }
+                                            }
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+    }
+    public void ShowOrders(String orderId, ListView l1){
+        orderid=orderId;
         sessionManager = new SessionManager(this);
         animationView = findViewById(R.id.notFoundAnimation);
         HashMap<String, String> usersDetails = sessionManager.getUsersDetailsFromSession();
         loggedusername = usersDetails.get(SessionManager.KEY_USERNAME);
-        reference = FirebaseDatabase.getInstance().getReference().child("Orders");
+        reference = FirebaseDatabase.getInstance().getReference().child("Orders").child(orderid);
         reference.addValueEventListener(new ValueEventListener() {
-            final String arr = "";
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot)
-            {
-                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                    FinalString[j] = snapshot1.getKey();
-                    j++;
-                }
-                ListView l1 = findViewById(R.id.OrderView);
-                if (j==0) {
-                    animationView.setVisibility(View.VISIBLE);
-                    l1.setVisibility(View.GONE);
-                }
-                else
-                {
-                    l1.setVisibility(View.VISIBLE);
-                    animationView.setVisibility(View.GONE);
-                    for (i = 0; i < j; i++)
-                    {
-                        reference = FirebaseDatabase.getInstance().getReference().child("Orders").child(FinalString[i]);
-                        orderid=FinalString[i];
-                        reference.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot)
                             {
@@ -91,6 +84,14 @@ public class All_Orders extends AppCompatActivity {
                                     }
                                     else if (datasnapshot.getKey().equals("LoggedUsername")) {
                                         user=datasnapshot.getValue().toString();
+                                        if(user==loggedusername || user.equals(loggedusername)){
+                                            l1.setVisibility(View.VISIBLE);
+                                            animationView.setVisibility(View.GONE);
+                                        }
+                                        else{
+                                            l1.setVisibility(View.GONE);
+                                            animationView.setVisibility(View.VISIBLE);
+                                        }
                                     }
                                     else if (datasnapshot.getKey().equals("ItemNameToSend")) {
                                         itemnametosend=datasnapshot.getValue().toString();
@@ -137,11 +138,15 @@ public class All_Orders extends AppCompatActivity {
                                     else if(datasnapshot.getKey().equals("SenderPhone")){
                                         senderphone=datasnapshot.getValue().toString();
                                     }
-                                  }
+                                    else{
+
+                                    }
+                                    orderid=orderId;
+                                }
                                 if(user== loggedusername || user.equals(loggedusername)) {
                                     arrayList.add(new Order_POJO(symbol,orderid,assignedto,bookoption,itemnametosend,notifypersonoption,orderdate,orderweight,parcelvalue,pickupaddress,preferbagoption,receiveraddress,receiverlandmark,receivername,receiverphone,senderlandmark,sendername,senderphone,status,price));
                                 }
-                                OrdersAdapter customAdapter = new OrdersAdapter(getApplicationContext(), R.layout.order_history_layout,arrayList);
+                                customAdapter= new OrdersAdapter(getApplicationContext(), R.layout.order_history_layout,arrayList);
                                 l1.setAdapter(customAdapter);
                                 l1.setOnItemClickListener((parent, view, position, id) -> {
                                     Intent intent=new Intent(getApplicationContext(),ViewOrder.class);
@@ -173,16 +178,9 @@ public class All_Orders extends AppCompatActivity {
 
                             }
                         });
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
     public void backpressed(View view) {
         super.onBackPressed();
     }
+
 }

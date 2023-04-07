@@ -104,14 +104,16 @@
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
-                <TextView
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/cardview"
                     android:layout_alignParentRight="true"
                     android:fontFamily="@font/bevanregular"
                     android:padding="10dp"
+                    android:backgroundTint="@color/white"
                     android:text="View All > "
+                    android:onClick="ShowOrderHistory"
                     android:textColor="#bc664b"
                     android:textSize="15sp" />
 

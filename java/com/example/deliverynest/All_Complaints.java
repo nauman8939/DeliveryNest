@@ -58,19 +58,9 @@ public class All_Complaints extends AppCompatActivity {
                         FinalString[j] = snapshot1.getKey();
                         j++;
                     }
-
                         ListView l1 = findViewById(R.id.ComplaintView);
-                        if (j==0) {
-                            animationView.setVisibility(View.VISIBLE);
-                            l1.setVisibility(View.GONE);
-                        }
-                        else
-                        {
-                                    l1.setVisibility(View.VISIBLE);
-                                    animationView.setVisibility(View.GONE);
-
-                                    for (int i = 0; i < j; i++)
-                                    {
+                            for (int i = 0; i < j; i++)
+                            {
                                             reference = FirebaseDatabase.getInstance().getReference().child("complaints").child(FinalString[i]);
                                             reference.addValueEventListener(new ValueEventListener() {
                                         @Override
@@ -78,7 +68,18 @@ public class All_Complaints extends AppCompatActivity {
                                         {
                                                 for (DataSnapshot datasnapshot : snapshot.getChildren())
                                                 {
-                                                    if (datasnapshot.getKey().equals("complaint_subject"))
+                                                    if (datasnapshot.getKey().equals("username")) {
+                                                        user=datasnapshot.getValue().toString();
+                                                        if(user.equals(username) || user==username){
+                                                            l1.setVisibility(View.VISIBLE);
+                                                            animationView.setVisibility(View.GONE);
+                                                        }
+                                                        else{
+                                                            animationView.setVisibility(View.VISIBLE);
+                                                            l1.setVisibility(View.GONE);
+                                                        }
+                                                    }
+                                                    else if (datasnapshot.getKey().equals("complaint_subject"))
                                                     {
                                                         subject = datasnapshot.getValue().toString();
                                                     }
@@ -95,9 +96,6 @@ public class All_Complaints extends AppCompatActivity {
                                                     }
                                                     else if (datasnapshot.getKey().equals("complaintDate")) {
                                                         Cdate = datasnapshot.getValue().toString();
-                                                    }
-                                                    else if (datasnapshot.getKey().equals("username")) {
-                                                        user=datasnapshot.getValue().toString();
                                                     }
                                                     else if(datasnapshot.getKey().equals("complaint_resolution")){
                                                         resolution=datasnapshot.getValue().toString();
@@ -129,8 +127,7 @@ public class All_Complaints extends AppCompatActivity {
 
                                             }
                                         });
-                                    }
-                         }
+                            }
                 }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {

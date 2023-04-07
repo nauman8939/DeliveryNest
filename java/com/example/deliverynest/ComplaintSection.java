@@ -15,7 +15,7 @@ public class ComplaintSection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complaint_section);
 
-        textView4 = (TextView) findViewById(R.id.textView4);
+        textView4 = findViewById(R.id.textView4);
         textView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

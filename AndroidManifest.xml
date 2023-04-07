@@ -29,10 +29,10 @@
             android:exported="false" />
         <activity
             android:name=".AboutUs"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".All_Complaints"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ReportIssue"
             android:exported="true" />

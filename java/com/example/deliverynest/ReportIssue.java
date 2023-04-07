@@ -31,7 +31,7 @@ public class ReportIssue extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         aLodingDialog = new LoadingDialog(ReportIssue.this);
-        spinner = (Spinner) findViewById(R.id.categorySpinner);
+        spinner = findViewById(R.id.categorySpinner);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, issuecategory);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
