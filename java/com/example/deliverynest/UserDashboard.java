@@ -84,7 +84,7 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         //Recent Orders
         recyclerView = findViewById(R.id.Recent_Orders);
 
-        database = FirebaseDatabase.getInstance().getReference("orders");
+        database = FirebaseDatabase.getInstance().getReference("Orders");
         recyclerView(username);
         getRecords();
         animateNavigationDrawer();
@@ -134,15 +134,25 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         myAdapter = new MyAdapter(this, list);
         recyclerView.setAdapter(myAdapter);
 
-        Query query = database.orderByChild("orders").equalTo(userName).limitToLast(5);
+//        String LoggedUsername = SessionManager.KEY_USERNAME;
+//      // Query query = database.getRef().orderByChild("LoggedUsername").equalTo("LoggedUsername").limitToLast(5);
+//        Query query = database.orderByChild("userId").equalTo(username);
+
+        String username = "user123"; // Replace with actual username
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ordersRef = database.getReference("Orders");
+
+        Query query = ordersRef.orderByChild("LoggedUsername").equalTo(username);
+
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                list.clear();
+                //list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String orderId = dataSnapshot.child("order_id").getValue(String.class);
-                    String status = dataSnapshot.child("status").getValue(String.class);
+                    String orderId = dataSnapshot.child("OrderId").getValue(String.class);
+                    String status = dataSnapshot.child("Status").getValue(String.class);
                     RecentOrders recentOrders = new RecentOrders();
                     recentOrders.order_id = orderId;
                     recentOrders.status = status;

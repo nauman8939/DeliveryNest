@@ -338,7 +338,7 @@
             android:background="@drawable/roundcorners"
             android:fontFamily="@font/bevanitalic"
             android:padding="0dp"
-
+            android:onClick="checkout"
             android:text="Checkout"
             android:textColor="@color/white"
             android:textSize="15sp" />

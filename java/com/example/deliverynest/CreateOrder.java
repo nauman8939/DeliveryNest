@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -65,9 +66,13 @@ public class CreateOrder extends BaseActivity  {
 
         NextButton=findViewById(R.id.NextButton);
 
+        String OrderWeightI=OrderWeight.getSelectedItem().toString();
+
+
         EditText[] EditTextArr ={SenderName,SenderPhone,PickUpAddress,ReceiverName,ReceiverPhone,ReceiverAddress,ItemNameToSend,ParcelValue};
         Spinner[] spinner ={SenderLandmark,ReceiverLandmark};
         NextButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Iterator iterator= null;
@@ -114,11 +119,13 @@ public class CreateOrder extends BaseActivity  {
                     intent.putExtra("SenderLandmark",SenderLandmark.getSelectedItem().toString());
                     intent.putExtra("ReceiverLandmark",ReceiverLandmark.getSelectedItem().toString());
                     intent.putExtra("BookOption",BookOption.getSelectedItem().toString());
-                    intent.putExtra("OrderWeight",OrderWeight.getSelectedItem().toString());
-
+                    intent.putExtra("bookindex", BookOption.getSelectedItemPosition());
+                    intent.putExtra("spinner_position", OrderWeight.getSelectedItemPosition());
+                    intent.putExtra("OrderWeight", OrderWeightI);
                     intent.putExtra("OrderWeightPO",OrderWeight.getSelectedItemPosition());
                     intent.putExtra("PreferBagOption",PreferBagOption.getText().toString());
                     intent.putExtra("NotifyPersonOption",NotifyPersonOption.getText().toString());
+
                     startActivity(intent);
                 }
             }

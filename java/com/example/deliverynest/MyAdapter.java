@@ -62,6 +62,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemCount() {
         if (list.size() == 0) {
+            System.out.println(list.size()+"checkkkkkkkk");
             return 1; // Display the "no orders found" layout
         } else {
             return list.size();

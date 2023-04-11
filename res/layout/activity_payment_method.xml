@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Payment_Method">
+    tools:context=".PaymentPage">
 
 
     <RelativeLayout
@@ -88,6 +88,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/paymentgroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checkedButton="@id/paytm"
@@ -254,7 +255,10 @@
                     android:id="@+id/totalamt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_toEndOf="@id/totaltextbutton"
                     android:drawableLeft="@drawable/indian_currency_icon"
                     android:fontFamily="@font/notoseriftotobold"
@@ -266,10 +270,14 @@
                     android:textSize="20sp" />
 
                 <Button
+                  android:id="@+id/checkoutbutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/custom_radio_selected"
                     android:drawableRight="@drawable/nexticon"
                     android:fontFamily="@font/bevanitalic"

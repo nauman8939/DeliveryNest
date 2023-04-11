@@ -1,6 +1,7 @@
 package com.example.deliverynest;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,7 @@ public class BaseActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
+
     }
 
     @Override
@@ -28,6 +31,7 @@ public class BaseActivity extends AppCompatActivity {
         // Toast.makeText(getApplicationContext(), "welcome back", Toast.LENGTH_SHORT).show();
         // Add any common code you want to run when the activity is resumed
     }
+
 
 
     // Add any other methods you want to be called in every activity
