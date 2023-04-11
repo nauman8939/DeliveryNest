@@ -3,25 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/bottom_nav_dashboard"
-        app:cnb_backgroundColor="@color/black"
+
         android:icon="@drawable/home_icon_menu"
         android:title="HOME"
         />
     <item
         android:id="@+id/bottom_nav_create"
-        app:cnb_backgroundColor="@color/black"
+
         android:icon="@drawable/menu_track"
         android:title="Create Order"
         android:onClick="CreateOrder"/>
 
     <item
         android:id="@+id/bottom_nav_track"
-        app:cnb_backgroundColor="@color/black"
+
         android:icon="@drawable/menu_history"
         android:title="Track Order" />
     <item
         android:id="@+id/bottom_nav_other"
-        app:cnb_backgroundColor="@color/black"
+
         android:icon="@drawable/menu_setting"
         android:onClick="naviagtionDrawerM"
         android:title="Other" />

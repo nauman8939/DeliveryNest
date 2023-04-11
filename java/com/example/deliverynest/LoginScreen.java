@@ -100,15 +100,12 @@ public class LoginScreen extends AppCompatActivity {
         String userEnteredUsername = username.getEditText().getText().toString().trim();
         String userEnteredPassword = password.getEditText().getText().toString().trim();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-
         Query checkUser = reference.orderByChild("username").equalTo(userEnteredUsername);
 
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                 if (dataSnapshot.exists()) {
-
                     username.setError(null);
                     username.setErrorEnabled(false);
 

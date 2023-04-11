@@ -32,7 +32,7 @@ public class User_Profile extends BaseActivity {
     LottieAnimationView lottie;
     TextView t1;
     Button editProfileButton,updateProfileButton,cancelProfileButton,logoutButton;
-    LinearLayout l1;
+    LinearLayout l1,l2;
     SessionManager sessionManager;
     String username;
     @Override
@@ -40,6 +40,7 @@ public class User_Profile extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         l1=findViewById(R.id.bottomLayout);
+        l2=findViewById(R.id.InfoLayout);
         l1.setVisibility(View.GONE);
         e1=findViewById(R.id.email);
         e2=findViewById(R.id.fullName);
@@ -67,6 +68,7 @@ public class User_Profile extends BaseActivity {
             public void onClick(View v) {
                 l1.setVisibility(View.VISIBLE);
                 editProfileButton.setVisibility(View.GONE);
+                l2.setVisibility(View.GONE);
             }
         });
 
@@ -75,6 +77,7 @@ public class User_Profile extends BaseActivity {
             public void onClick(View v) {
                 l1.setVisibility(View.GONE);
                 editProfileButton.setVisibility(View.VISIBLE);
+                l2.setVisibility(View.VISIBLE);
             }
         });
 
@@ -91,6 +94,7 @@ public class User_Profile extends BaseActivity {
                         Toast.makeText(User_Profile.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
                         l1.setVisibility(View.GONE);
                         editProfileButton.setVisibility(View.VISIBLE);
+                        l2.setVisibility(View.VISIBLE);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -133,8 +137,5 @@ public class User_Profile extends BaseActivity {
     public void onBackPressed(View view) {
         Intent i =new Intent(getApplicationContext(),UserDashboard.class);
         startActivity(i);
-
-
-
     }
 }

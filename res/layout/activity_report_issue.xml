@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".ReportIssue"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/backicon"
+            android:onClick="backpressed"
+            android:text=""
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="-33dp"
+            android:text="Report an issue"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+        <Spinner
+            android:id="@+id/categorySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="10dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/issueDesc"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:gravity="start"
+                android:hint="Tell us what happened"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:text="Do you want to upload a screenshot/image?"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/BtnUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/uploadicon"
+            android:text="Upload"
+            />
+        <ImageView
+            android:id="@+id/ImagePreview"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            />
+        <Button
+            android:id="@+id/BtnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#bc664b"
+            android:text="Submit"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+</ScrollView>

@@ -20,7 +20,6 @@
         app:headerLayout="@layout/menu_header"
         app:menu="@menu/main_menu" />
 
-
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
@@ -43,7 +42,7 @@
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:layout_alignParentLeft="true"
-                    android:onClick="UserProfile"
+                    android:onClick="ShowProfile"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/userprofileicon" />
@@ -105,14 +104,16 @@
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
-                <TextView
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/cardview"
                     android:layout_alignParentRight="true"
                     android:fontFamily="@font/bevanregular"
                     android:padding="10dp"
+                    android:backgroundTint="@color/white"
                     android:text="View All > "
+                    android:onClick="ShowOrderHistory"
                     android:textColor="#bc664b"
                     android:textSize="15sp" />
 
@@ -132,7 +133,6 @@
                     android:layout_below="@id/recent_order"
                     android:layout_toEndOf="@id/historyanimation"
                     android:background="#f5f6f8" />
-
 
                 <TextView
                     android:id="@+id/our_services"

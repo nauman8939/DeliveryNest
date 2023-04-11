@@ -1,23 +1,20 @@
 package com.example.deliverynest;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.animation.content.Content;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -27,7 +24,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
@@ -37,6 +33,7 @@ import java.util.HashMap;
 public class UserDashboard extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
     SessionManager sessionManager;
     static final float END_SCALE = 0.7f;
+    int i=0,j=0;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     LottieAnimationView menuIcon;
@@ -50,6 +47,7 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
     ImageSlider imageSlider;
     String fullname,username;
     TextView userfullname;
+    String user,status;
 
 
     @Override
@@ -84,14 +82,10 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         //Recent Orders
         recyclerView = findViewById(R.id.Recent_Orders);
 
-        database = FirebaseDatabase.getInstance().getReference("Orders");
+        database = FirebaseDatabase.getInstance().getReference("orders");
         recyclerView(username);
         getRecords();
         animateNavigationDrawer();
-
-
-
-
     }
     public void getRecords(){
         DatabaseReference reference=FirebaseDatabase.getInstance().getReference().child("users").child(username);
@@ -101,10 +95,7 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
                 for (DataSnapshot datasnapshot: snapshot.getChildren()) {
                     if(datasnapshot.getKey().equals("name")){
                         userfullname.setText("Hey! , "+datasnapshot.getValue().toString()+".");
-
                     }
-
-
                 }
             }
             @Override
@@ -127,6 +118,9 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
     }
 
     private void recyclerView(String userName) {
+        String[] FinalString =new String[50];
+        recyclerView = findViewById(R.id.Recent_Orders);
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
@@ -134,38 +128,48 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         myAdapter = new MyAdapter(this, list);
         recyclerView.setAdapter(myAdapter);
 
-//        String LoggedUsername = SessionManager.KEY_USERNAME;
-//      // Query query = database.getRef().orderByChild("LoggedUsername").equalTo("LoggedUsername").limitToLast(5);
-//        Query query = database.orderByChild("userId").equalTo(username);
-
-        String username = "user123"; // Replace with actual username
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ordersRef = database.getReference("Orders");
-
-        Query query = ordersRef.orderByChild("LoggedUsername").equalTo(username);
-
-
-        query.addValueEventListener(new ValueEventListener() {
+        database = FirebaseDatabase.getInstance().getReference("Orders");
+        database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //list.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String orderId = dataSnapshot.child("OrderId").getValue(String.class);
-                    String status = dataSnapshot.child("Status").getValue(String.class);
-                    RecentOrders recentOrders = new RecentOrders();
-                    recentOrders.order_id = orderId;
-                    recentOrders.status = status;
-                    list.add(recentOrders);
+                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                    FinalString[j] = snapshot1.getKey();
+                    j++;
+                }
+                for (i = 0; i < j; i++) {
+                    database = FirebaseDatabase.getInstance().getReference("Orders").child(FinalString[i]);
+                    String orderId = FinalString[i];
+                    database.addValueEventListener(new ValueEventListener()
+                    {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot)
+                        {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                if(dataSnapshot.getKey().equals("Status")){
+                                   status=dataSnapshot.getValue().toString();
+                                }
+                                else if(dataSnapshot.getKey().equals("LoggedUsername")){
+                                    user=dataSnapshot.getValue().toString();
+                                }
+                            }
+                            if(user.equals(userName)) {
+                                RecentOrders recentOrders = new RecentOrders();
+                                recentOrders.order_id = orderId;
+                                recentOrders.status = status;
+                                if(list.size()<5) {
+                                    list.add(recentOrders);
+                                }
+                                myAdapter.notifyDataSetChanged();
+                                recyclerView.setVisibility(myAdapter.getItemViewType(list.size()));
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    // Show orders in RecyclerView
-                    myAdapter.notifyDataSetChanged();
-                    recyclerView.setVisibility(View.VISIBLE);
-                    View noOrdersLayout = findViewById(R.id.Recent_Orders);
-                    noOrdersLayout.setVisibility(View.GONE);
+                        }
+                    });
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -197,7 +201,9 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
     }
 
     public void animateNavigationDrawer() {
-
+        //drawerLayout.setScrimColor(getResources().getColor(R.color.secondaryappcolor));
+        //Add any color or remove it to use the default one!
+        //To make it transparent use Color.Transparent in side setScrimColor();
         drawerLayout.setScrimColor(Color.TRANSPARENT);
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
@@ -231,43 +237,32 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
-    public  void UserProfile(View view){
-        Intent i = new Intent(getApplicationContext(),User_Profile.class);
+    public void ShowComplaints(MenuItem item){
+        Intent i = new Intent(getApplicationContext(),ComplaintSection.class);
         startActivity(i);
-    }
-
-    public void UserProfile(MenuItem item) {
-        Intent i = new Intent(getApplicationContext(),OrderSummary.class);
-        startActivity(i);
-
     }
     public void CreateOrder(MenuItem item) {
         Intent i = new Intent(getApplicationContext(),CreateOrder.class);
         startActivity(i);
-
     }
-    public void AboutUs(MenuItem item) {
-
-        Intent intent = new Intent(UserDashboard.this, AboutUs.class);
-
-        startActivity(intent);
+    public void ShowProfile(MenuItem item){
+        Intent i = new Intent(getApplicationContext(),User_Profile.class);
+        startActivity(i);
     }
-
-
-    public void naviagtionDrawerM(MenuItem item) {
-        navigationView.bringToFront();
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
-        menuIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (drawerLayout.isDrawerVisible(GravityCompat.START))
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                else drawerLayout.openDrawer(GravityCompat.START);
-
-            }
-        });
-        animateNavigationDrawer();
-
+    public void ShowProfile(View view){
+        Intent i = new Intent(getApplicationContext(),User_Profile.class);
+        startActivity(i);
+    }
+    public void ShowAbout(MenuItem item){
+        Intent i = new Intent(getApplicationContext(),AboutUs.class);
+        startActivity(i);
+    }
+    public void ShowOrderHistory(MenuItem item){
+        Intent i = new Intent(getApplicationContext(),All_Orders.class);
+        startActivity(i);
+    }
+    public void ShowOrderHistory(View view){
+        Intent i = new Intent(getApplicationContext(),All_Orders.class);
+        startActivity(i);
     }
 }

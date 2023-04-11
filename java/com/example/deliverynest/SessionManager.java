@@ -18,9 +18,9 @@ public class SessionManager {
 
     public static final String KEY_DATE ="date";
 
-    private Context context;
-    private SharedPreferences preferences;
-    private SharedPreferences.Editor editor;
+    private final Context context;
+    private final SharedPreferences preferences;
+    private final SharedPreferences.Editor editor;
 
     public SessionManager(Context context) {
         this.context = context;

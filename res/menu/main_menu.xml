@@ -9,7 +9,9 @@
         <item
             android:icon="@drawable/menu_history"
             android:id="@+id/nav_search"
-            android:title="@string/history" />
+            android:onClick="ShowOrderHistory"
+            android:title="@string/history"
+            />
         <item
             android:icon="@drawable/menu_track"
             android:id="@+id/nav_all_categories"
@@ -17,7 +19,9 @@
         <item
             android:icon="@drawable/menu_complaints"
             android:id="@+id/nav_add_missing_place"
-            android:title="@string/complaints" />
+            android:onClick="ShowComplaints"
+            android:title="@string/complaints"
+            />
     </group>
 
     <item android:title="Profile">
@@ -27,12 +31,14 @@
                     android:icon="@drawable/splashicon"
                     android:id="@+id/nav_login"
                     android:title="@string/profile"
-                    android:onClick="UserProfile"/>
-                <item
+                    android:onClick="ShowProfile"
+                    />
+               <!-- <item
                     android:icon="@drawable/menu_update"
                     android:id="@+id/nav_profile"
                     android:title="@string/update"
-                    android:onClick="UserProfile"/>
+                    android:onClick="ShowProfile"
+                    />-->
                 <item
                     android:icon="@drawable/menu_logout"
                     android:id="@+id/nav_logout"
@@ -43,7 +49,7 @@
     </item>
 
 
-    <item android:title="Share">
+    <item android:title="About Us">
         <menu>
             <group android:checkableBehavior="none">
                 <item
@@ -53,12 +59,13 @@
                 <item
                     android:icon="@drawable/menu_rate"
                     android:id="@+id/nav_rate_us"
-                    android:title="ABOUT US"
-                    android:onClick="AboutUs"/>
+                    android:title="@string/rateus" />
+                <item
+                    android:id="@+id/nav_about_us"
+                    android:icon="@drawable/menu_rate"
+                    android:onClick="ShowAbout"
+                    android:title="@string/meetteam" />
             </group>
         </menu>
     </item>
-
-
-
 </menu>

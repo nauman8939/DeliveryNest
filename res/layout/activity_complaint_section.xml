@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ComplaintSection">
+
+    <Button
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/backicon"
+        android:text=""
+        android:onClick="backpressed"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/logo"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="380dp"
+        android:text="Service information"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="420dp"
+        android:text="Privacy policy"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="460dp"
+        android:textAlignment="center"
+        android:text="Terms and Conditions"
+        android:textColor="@color/black"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="500dp"
+        android:textAlignment="center"
+        android:text="Report a problem"
+        android:textColor="@color/black"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="540dp"
+        android:text="View Complaints"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="640dp"
+        android:drawableTop="@drawable/copyrightsymbol"
+        android:text="DeliveryNest , 2023 "
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="20sp"
+        />
+</RelativeLayout>

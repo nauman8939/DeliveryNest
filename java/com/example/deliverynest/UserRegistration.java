@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -163,10 +162,7 @@ public class UserRegistration extends AppCompatActivity {
 
     }
     private boolean saveUserData() {
-
-
-
-            final String username = regUsername.getEditText().getText().toString();
+      final String username = regUsername.getEditText().getText().toString();
 
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -174,12 +170,9 @@ public class UserRegistration extends AppCompatActivity {
                     if (dataSnapshot.child(username).exists()) {
                         regUsername.setError("Username already exists");
                         regUsername.requestFocus();
-
                     }
                     else {
-
                         passdata();
-
                     }
                     }
 
