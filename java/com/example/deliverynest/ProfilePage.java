@@ -36,7 +36,7 @@ public class ProfilePage extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_main);
+        setContentView(R.layout.activity_user_profile);
         l1=findViewById(R.id.bottomLayout);
         l1.setVisibility(View.GONE);
         e1=findViewById(R.id.email);

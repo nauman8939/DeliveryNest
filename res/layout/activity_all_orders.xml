@@ -4,13 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f5f6f8"
     android:orientation="vertical"
     tools:context=".All_Orders"
     >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#bc664b">
     <Button
+        android:id="@+id/backbtn"
         android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:background="@drawable/backicon"
+        android:layout_height="50dp"
+        android:background="@drawable/whiteback"
         android:onClick="backpressed"
         />
     <TextView
@@ -18,12 +25,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:letterSpacing="0.1"
+        android:layout_toEndOf="@id/backbtn"
         android:text="Order History"
-        android:textColor="@color/secondaryappcolor"
+        android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold"
         />
-
+    </RelativeLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,9 +48,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="10dp"
-        android:divider="#B6664B"
-        android:dividerHeight="2dp"
-        android:listSelector="#edf3f8"
+
+        android:background="@color/white"
+        android:dividerHeight="10dp"
+        android:padding="10dp"
+
         />
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/notFoundAnimation"

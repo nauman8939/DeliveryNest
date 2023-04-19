@@ -18,11 +18,11 @@
         android:id="@+id/bottom_nav_track"
 
         android:icon="@drawable/menu_history"
-        android:title="Track Order" />
+        android:title="Track Order"
+        android:onClick="TrackOrder"/>
     <item
         android:id="@+id/bottom_nav_other"
 
         android:icon="@drawable/menu_setting"
-        android:onClick="naviagtionDrawerM"
         android:title="Other" />
 </menu>

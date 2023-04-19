@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class All_Orders extends AppCompatActivity {
+public class All_Orders extends BaseActivity {
     SessionManager sessionManager;
     OrdersAdapter customAdapter;
     String orderid,assignedto,bookoption,itemnametosend,loggedusername,notifypersonoption,orderdate,orderweight,parcelvalue,pickupaddress,

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class OrderConfirmationReceipt extends AppCompatActivity {
+public class OrderConfirmationReceipt extends BaseActivity {
     TextView orderID;
     TextView PaymentMethod;
     TextView TDate;

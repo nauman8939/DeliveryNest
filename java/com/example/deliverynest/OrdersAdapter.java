@@ -31,7 +31,7 @@ public class OrdersAdapter extends ArrayAdapter<Order_POJO> {
         ImageView i1=v.findViewById(R.id.StatusSymbol);
 
         t1.append(arrayList.get(position).getOrderid());
-        t2.setText(arrayList.get(position).getItemnametosend());
+
         t3.setText(arrayList.get(position).getOrderdate());
         t4.setText(arrayList.get(position).getStatus());
         i1.setImageResource(arrayList.get(position).getSymbol());

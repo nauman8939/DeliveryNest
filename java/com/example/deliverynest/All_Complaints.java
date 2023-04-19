@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class All_Complaints extends AppCompatActivity {
+public class All_Complaints extends BaseActivity {
     SessionManager sessionManager;
     String subject,status,Cdate,resolution,description;
     String user="";

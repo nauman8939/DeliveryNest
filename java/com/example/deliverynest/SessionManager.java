@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import java.util.HashMap;
 
 public class SessionManager {
-    private static final String PREF_NAME = "SessionManager";
+    private static final String PREF_NAME = "com.example.deliverynest.SessionManager";
     private static final String KEY_IS_LOGGED_IN = "isLoggedIn";
     private static final int PRIVATE_MODE = 0;
     public static final String KEY_FULLNAME = "fullName";

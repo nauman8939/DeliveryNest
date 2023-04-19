@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ComplaintSection extends AppCompatActivity {
+public class ComplaintSection extends BaseActivity {
 
     TextView textView4,textView5;
     @Override

@@ -65,7 +65,7 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
 
 
         //offer section
-       offerSection();
+         offerSection();
         //menu Hooks
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
@@ -243,6 +243,10 @@ public class UserDashboard extends BaseActivity implements NavigationView.OnNavi
     }
     public void CreateOrder(MenuItem item) {
         Intent i = new Intent(getApplicationContext(),CreateOrder.class);
+        startActivity(i);
+    }
+    public void TrackOrder(MenuItem item) {
+        Intent i = new Intent(getApplicationContext(),Track_Order.class);
         startActivity(i);
     }
     public void ShowProfile(MenuItem item){

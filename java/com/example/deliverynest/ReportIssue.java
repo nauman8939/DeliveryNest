@@ -13,7 +13,7 @@ import com.google.firebase.database.*;
 import com.google.firebase.storage.*;
 import java.util.*;
 
-public class ReportIssue extends AppCompatActivity {
+public class ReportIssue extends BaseActivity {
     private LoadingDialog aLodingDialog;
     private final StorageReference reference= FirebaseStorage.getInstance().getReference().child("complaints");
     Spinner spinner;

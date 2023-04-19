@@ -111,7 +111,7 @@
                     android:layout_alignParentRight="true"
                     android:fontFamily="@font/bevanregular"
                     android:padding="10dp"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="#f5f6f8"
                     android:text="View All > "
                     android:onClick="ShowOrderHistory"
                     android:textColor="#bc664b"
